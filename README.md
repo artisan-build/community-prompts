@@ -1,4 +1,4 @@
-<p align="center"><img width="386" height="68" src="/art/logo.svg" alt="Laravel Prompts"></p>
+<p align="center"><img width="726" height="113" src="/art/logo.svg" alt="Laravel Prompts"></p>
 
 <p align="center">
 <a href="https://github.com/artisan-build/community-prompts/actions"><img src="https://github.com/artisan-build/community-prompts/workflows/tests/badge.svg" alt="Build Status"></a>
