@@ -3,6 +3,14 @@
     "type": "library",
     "description": "Beautiful and user-friendly forms for your command-line PHP applications built by the community for the Laravel/Prompts package.",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Len Woodward",
+            "email": "Len@ProjektGopher.com",
+            "homepage": "https://LenWoodward.com",
+            "role": "Maintainer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "ArtisanBuild\\CommunityPrompts\\": "src/"
