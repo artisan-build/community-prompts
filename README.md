@@ -19,6 +19,14 @@ We currently have no official documentation for Community Prompts.
 
 Documentation for Laravel Prompts can be found on the [Laravel website](https://laravel.com/docs/prompts).
 
+## Installation and Usage
+
+```sh
+composer require artisan-build/community-prompts
+```
+
+For usage examples, refer to the `playground` directory.
+
 ## Contributing
 
 Thank you for considering contributing to Community Prompts! We have no guides yet on how to contribute.
