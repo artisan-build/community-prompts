@@ -1,11 +1,11 @@
 {
-    "name": "laravel/prompts",
+    "name": "artisan-build/community-prompts",
     "type": "library",
-    "description": "Add beautiful and user-friendly forms to your command-line applications.",
+    "description": "Beautiful and user-friendly forms for your command-line PHP applications built by the community for the Laravel/Prompts package.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Laravel\\Prompts\\": "src/"
+            "ArtisanBuild\\CommunityPrompts\\": "src/"
         },
         "files": [
             "src/helpers.php"
