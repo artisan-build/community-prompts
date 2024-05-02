@@ -1,10 +1,10 @@
 <p align="center"><img width="386" height="68" src="/art/logo.svg" alt="Laravel Prompts"></p>
 
 <p align="center">
-<a href="https://github.com/laravel/prompts/actions"><img src="https://github.com/laravel/prompts/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/prompts"><img src="https://img.shields.io/packagist/dt/laravel/prompts" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/prompts"><img src="https://img.shields.io/packagist/v/laravel/prompts" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/prompts"><img src="https://img.shields.io/packagist/l/laravel/prompts" alt="License"></a>
+<a href="https://github.com/artisan-build/community-prompts/actions"><img src="https://github.com/artisan-build/community-prompts/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/artisan-build/community-prompts"><img src="https://img.shields.io/packagist/dt/artisan-build/community-prompts" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/artisan-build/community-prompts"><img src="https://img.shields.io/packagist/v/artisan-build/community-prompts" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/artisan-build/community-prompts"><img src="https://img.shields.io/packagist/l/artisan-build/community-prompts" alt="License"></a>
 </p>
 
 ## Introduction
@@ -15,11 +15,13 @@ Laravel Prompts is perfect for accepting user input in your [Artisan console com
 
 ## Official Documentation
 
+We currently have no official documentation for Community Prompts.
+
 Documentation for Laravel Prompts can be found on the [Laravel website](https://laravel.com/docs/prompts).
 
 ## Contributing
 
-Thank you for considering contributing to Laravel Prompts! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Thank you for considering contributing to Community Prompts! We have no guides yet on how to contribute.
 
 ## Code of Conduct
 
@@ -27,7 +29,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/laravel/prompts/security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/artisan-build/community-prompts/security/policy) on how to report security vulnerabilities.
 
 ## License
 
