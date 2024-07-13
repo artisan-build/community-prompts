@@ -2,8 +2,8 @@
 
 namespace ArtisanBuild\CommunityPrompts\Output;
 
-use React\Stream\WritableResourceStream;
 use Laravel\Prompts\Output\ConsoleOutput;
+use React\Stream\WritableResourceStream;
 
 class AsyncConsoleOutput extends ConsoleOutput
 {

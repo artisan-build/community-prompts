@@ -2,8 +2,8 @@
 
 namespace ArtisanBuild\CommunityPrompts;
 
-use Closure;
 use ArtisanBuild\CommunityPrompts\Output\AsyncConsoleOutput;
+use Closure;
 use React\EventLoop\Loop;
 use React\Stream\ReadableResourceStream;
 use Symfony\Component\Console\Output\OutputInterface;
