@@ -68,6 +68,11 @@ abstract class PatchedPrompt
         static::setOutput(new BufferedConsoleOutput());
     }
 
+    /**
+     * Implentation for faked keypresses.
+     *
+     * @param array<int, string> $keys
+     */
     public static function fakeKeyPresses(array $keys, Closure $closure): void
     {
         foreach ($keys as $key) {
