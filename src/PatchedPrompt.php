@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtisanBuild\CommuniyPrompts;
+namespace ArtisanBuild\CommunityPrompts;
 
 use ArtisanBuild\CommunityPrompts\Support\Nothing;
 use Closure;

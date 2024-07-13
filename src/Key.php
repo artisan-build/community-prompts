@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtisanBuild\CommuniyPrompts;
+namespace ArtisanBuild\CommunityPrompts;
 
 use Laravel\Prompts\Key as PromptsKey;
 
