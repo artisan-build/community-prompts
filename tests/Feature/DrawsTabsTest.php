@@ -1,8 +1,8 @@
 <?php
 
+use ArtisanBuild\CommunityPrompts\Themes\Default\Concerns\DrawsTabs;
 use Illuminate\Support\Collection;
 use Laravel\Prompts\Prompt;
-use ArtisanBuild\CommunityPrompts\Themes\Default\Concerns\DrawsTabs;
 use Laravel\Prompts\Themes\Default\Renderer;
 
 class TestPrompt extends Prompt
@@ -41,10 +41,9 @@ class TestRenderer extends Renderer
  * Removing it will cause the test to fail (correctly) while allowing
  * the output to appear indistinguishable from the expected output.
  */
-
 it('renders tabs', function () {
     Prompt::fake();
-    
+
     $tabs = collect(['One', 'Two', 'Three', 'Four', 'Five', 'Six']);
 
     (new TestPrompt($tabs))->display();
@@ -72,7 +71,7 @@ it('highlights tabs', function () {
 
 it('truncates tabs', function () {
     Prompt::fake();
-    
+
     $tabs = collect(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight']);
 
     (new TestPrompt($tabs))->display();

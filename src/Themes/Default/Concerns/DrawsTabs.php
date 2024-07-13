@@ -12,7 +12,7 @@ trait DrawsTabs
     /**
      * Render a row of tabs.
      *
-     * @param Collection<int, string>  $tabs
+     * @param  Collection<int, string>  $tabs
      */
     protected function tabs(
         Collection $tabs,
@@ -25,15 +25,15 @@ trait DrawsTabs
         // Build the top row for the tabs by adding whitespace equal
         // to the width of each tab plus padding, or by adding an
         // equal number of box characters for the selected tab.
-        $top_row = $tabs->map(fn($value, $key) => $key === $selected
-            ? '╭' . str_repeat('─', $strippedWidth($value) + 2) . '╮'
+        $top_row = $tabs->map(fn ($value, $key) => $key === $selected
+            ? '╭'.str_repeat('─', $strippedWidth($value) + 2).'╮'
             : str_repeat(' ', $strippedWidth($value) + 4)
         )->implode('');
 
         // Build the middle row for the tabs by adding the tab name
         // surrounded by some padding. But if the tab is selected
         // then highlight the tab and surround it in box chars.
-        $middle_row = $tabs->map(fn($value, $key) => $key === $selected
+        $middle_row = $tabs->map(fn ($value, $key) => $key === $selected
             ? "{$this->dim('│')} {$this->{$color}($value)} {$this->dim('│')}"
             : "  {$value}  "
         )->implode('');
@@ -41,8 +41,8 @@ trait DrawsTabs
         // Build the bottom row for the tabs by adding box characters equal to the width
         // of each tab, plus padding. If the tab is selected, add the appropriate box
         // characters instead. Finally, pad the whole line to fill the width fully.
-        $bottom_row = $tabs->map(fn($value, $key) => $key === $selected
-            ? '┴' . str_repeat('─', $strippedWidth($value) + 2) . '┴'
+        $bottom_row = $tabs->map(fn ($value, $key) => $key === $selected
+            ? '┴'.str_repeat('─', $strippedWidth($value) + 2).'┴'
             : str_repeat('─', $strippedWidth($value) + 4)
         )->implode('');
         $bottom_row = $this->pad($bottom_row, $width, '─');

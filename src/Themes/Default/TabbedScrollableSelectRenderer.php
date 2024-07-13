@@ -2,18 +2,18 @@
 
 namespace ArtisanBuild\CommunityPrompts\Themes\Default;
 
+use ArtisanBuild\CommunityPrompts\TabbedScrollableSelectPrompt;
 use Illuminate\Support\Collection;
-use Laravel\Prompts\Themes\Default\Renderer;
 use Laravel\Prompts\Themes\Contracts\Scrolling;
 use Laravel\Prompts\Themes\Default\Concerns\DrawsBoxes;
 use Laravel\Prompts\Themes\Default\Concerns\DrawsScrollbars;
-use ArtisanBuild\CommunityPrompts\TabbedScrollableSelectPrompt;
+use Laravel\Prompts\Themes\Default\Renderer;
 
 class TabbedScrollableSelectRenderer extends Renderer implements Scrolling
 {
+    use Concerns\DrawsTabs;
     use DrawsBoxes;
     use DrawsScrollbars;
-    use Concerns\DrawsTabs;
 
     /**
      * Render the tabbed-scrollable-select prompt.
@@ -53,7 +53,7 @@ class TabbedScrollableSelectRenderer extends Renderer implements Scrolling
                 )
                 ->when(
                     true,
-                    fn () => $this->renderInstructions($prompt)->each(fn($line) => $this->hint($line)),
+                    fn () => $this->renderInstructions($prompt)->each(fn ($line) => $this->hint($line)),
                     fn () => $this->newLine() // Space for errors
                 ),
         };
@@ -97,13 +97,13 @@ class TabbedScrollableSelectRenderer extends Renderer implements Scrolling
 
     /**
      * Render the instructions.
-     * 
+     *
      * @return \Illuminate\Support\Collection<int, string>
      */
     protected function renderInstructions(TabbedScrollableSelectPrompt $prompt): Collection
     {
         return $prompt->getInstructions()
-            ->map(fn($line) => $this->dim($line));
+            ->map(fn ($line) => $this->dim($line));
     }
 
     /**

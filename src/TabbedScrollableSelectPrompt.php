@@ -4,9 +4,9 @@ namespace ArtisanBuild\CommunityPrompts;
 
 use ArtisanBuild\CommunityPrompts\Themes\Default\TabbedScrollableSelectRenderer;
 use Closure;
+use Illuminate\Support\Collection;
 use Laravel\Prompts\Key;
 use Laravel\Prompts\Prompt;
-use Illuminate\Support\Collection;
 
 /**
  * @phpstan-type TOption = array{id: int|string, tab: string, body: string}
@@ -16,7 +16,7 @@ class TabbedScrollableSelectPrompt extends Prompt
     /**
      * Index of the currently selected option.
      */
-    public int|null $selected;
+    public ?int $selected;
 
     public int $firstVisible = 0;
 
@@ -24,7 +24,7 @@ class TabbedScrollableSelectPrompt extends Prompt
 
     /**
      * The processed content for the tabbed-scrollable-select prompt.
-     * 
+     *
      * @var Collection<int, Collection<int, string>>
      */
     public readonly Collection $content;
@@ -38,9 +38,9 @@ class TabbedScrollableSelectPrompt extends Prompt
 
     /**
      * Create a new TabbedScrollableSelectPrompt instance.
-     * 
+     *
      * @param  array<int, TOption>|Collection<int, TOption>  $options
-     * @param int|Closure(Collection<int, TOption>): Collection<int, TOption> $default The default value for the prompt. If Closure, it is passed `$options` and should return a Collection containing only the desired record.
+     * @param  int|Closure(Collection<int, TOption>): Collection<int, TOption>  $default  The default value for the prompt. If Closure, it is passed `$options` and should return a Collection containing only the desired record.
      */
     public function __construct(
         public string $label,
@@ -64,7 +64,7 @@ class TabbedScrollableSelectPrompt extends Prompt
             return $this->processContentBody((string) $option['body'], $this->width);
         });
 
-        $this->on('key', fn ($key) => match($key) {
+        $this->on('key', fn ($key) => match ($key) {
             Key::ENTER => $this->submit(),
             Key::ESCAPE => $this->handleEscape(),
             Key::UP, Key::UP_ARROW => $this->handleUpArrow(),
@@ -131,7 +131,9 @@ class TabbedScrollableSelectPrompt extends Prompt
 
     protected function doTimes(int $times, Closure $closure): void
     {
-        for ($i = 0; $i < $times; $i++) $closure();
+        for ($i = 0; $i < $times; $i++) {
+            $closure();
+        }
     }
 
     protected function handleUpArrow(): void

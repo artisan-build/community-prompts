@@ -3,22 +3,22 @@
 namespace ArtisanBuild\CommuniyPrompts;
 
 use ArtisanBuild\CommunityPrompts\Support\Nothing;
-use Laravel\Prompts\Output\BufferedConsoleOutput;
 use Closure;
+use Laravel\Prompts\Concerns;
 use Laravel\Prompts\Exceptions\FormRevertedException;
+use Laravel\Prompts\Output\BufferedConsoleOutput;
 use Laravel\Prompts\Output\ConsoleOutput;
+use Laravel\Prompts\Terminal;
 use RuntimeException;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
-use Laravel\Prompts\Concerns;
-use Laravel\Prompts\Terminal;
 
 /**
  * PatchedPrompt
- * 
+ *
  * This abstract class is a temporary implementation to enable
  * support for AsyncPrompt until the referenced PR is merged.
- * 
+ *
  * @see https://github.com/laravel/prompts/pull/154
  */
 abstract class PatchedPrompt
@@ -219,7 +219,7 @@ abstract class PatchedPrompt
 
     public function runLoop(callable $callable): mixed
     {
-        while(($key = static::terminal()->read()) !== null) {
+        while (($key = static::terminal()->read()) !== null) {
             $result = $callable($key);
 
             if (! $this->is_nothing($result)) {

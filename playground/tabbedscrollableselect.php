@@ -10,7 +10,7 @@ $application = tabbedscrollableselect(
         [
             'id' => 0,
             'tab' => 'Jess Archer',
-            'body' => <<<BODY
+            'body' => <<<'BODY'
             Subject: Application for Software Developer Position - The Code to Success!
 
             Dear Hiring Manager,
@@ -31,7 +31,7 @@ $application = tabbedscrollableselect(
         [
             'id' => 1,
             'tab' => 'Joe Dixon',
-            'body' => <<<BODY
+            'body' => <<<'BODY'
             Subject: Innovative Applicant Alert: Ready to Engineer Success at [Company Name]!
 
             Dear Hiring Manager,
@@ -52,7 +52,7 @@ $application = tabbedscrollableselect(
         [
             'id' => 2,
             'tab' => 'Tim MacDonald',
-            'body' => <<<BODY
+            'body' => <<<'BODY'
             Subject: Ready to Commit: My Application for Software Developer at [Company Name]
 
             Dear Hiring Team,
@@ -73,7 +73,7 @@ $application = tabbedscrollableselect(
         [
             'id' => 3,
             'tab' => 'Mohammed Said',
-            'body' => <<<BODY
+            'body' => <<<'BODY'
             Subject: Coding My Way Into Your Team: Software Developer Application at [Company Name]
 
             Dear Hiring Manager,
@@ -94,7 +94,7 @@ $application = tabbedscrollableselect(
         [
             'id' => 4,
             'tab' => 'Nuno Maduro',
-            'body' => <<<BODY
+            'body' => <<<'BODY'
             Subject: Debugging Opportunities: Application for Software Developer at [Company Name]
 
             Dear Hiring Team,
