@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Prompts;
+namespace ArtisanBuild\CommunityPrompts;
 
 use Closure;
 use Laravel\Prompts\Output\AsyncConsoleOutput;
@@ -8,7 +8,7 @@ use React\EventLoop\Loop;
 use React\Stream\ReadableResourceStream;
 use Symfony\Component\Console\Output\OutputInterface;
 
-abstract class AsyncPrompt extends Prompt
+abstract class AsyncPrompt extends PatchedPrompt
 {
     /**
      * The output instance.
@@ -20,6 +20,11 @@ abstract class AsyncPrompt extends Prompt
 
     protected static ReadableResourceStream $stdin;
 
+    /**
+     * Implementation for the looping mechanism for faking keypresses
+     *
+     * @param  array<int, string>  $keys
+     */
     public static function fakeKeyPresses(array $keys, Closure $closure): void
     {
         static::$stdin ??= new ReadableResourceStream(STDIN);
