@@ -26,7 +26,6 @@ beforeEach(function () {
     ];
 });
 
-
 it('accepts an array of options', function () {
     Prompt::fake([Key::RIGHT, Key::RIGHT, Key::ENTER]);
 
@@ -128,8 +127,8 @@ it('accepts a scroll value and enforces the minimum', function () {
     Prompt::assertStrippedOutputDoesntContain('line 6');
 });
 
-it('scrolls the content', function() {
-    Prompt::fake([Key:: DOWN, Key::ENTER]);
+it('scrolls the content', function () {
+    Prompt::fake([Key::DOWN, Key::ENTER]);
 
     $result = tabbedscrollableselect(
         label: 'This content should display the 6th line.',
