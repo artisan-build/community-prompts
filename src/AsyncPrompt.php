@@ -7,20 +7,19 @@ use Laravel\Prompts\Output\AsyncConsoleOutput;
 use React\EventLoop\Loop;
 use React\Stream\ReadableResourceStream;
 use Symfony\Component\Console\Output\OutputInterface;
-use Throwable;
 
 abstract class AsyncPrompt extends Prompt
 {
     /**
      * The output instance.
-     * 
+     *
      * We redefine the output to prevent the parent class from
      * forcing a non-async console output on this instance.
      */
     protected static OutputInterface $output;
 
     protected static ReadableResourceStream $stdin;
-    
+
     public static function fakeKeyPresses(array $keys, Closure $closure): void
     {
         static::$stdin ??= new ReadableResourceStream(STDIN);
