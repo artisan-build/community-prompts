@@ -3,7 +3,7 @@
 namespace ArtisanBuild\CommunityPrompts;
 
 use Closure;
-use Laravel\Prompts\Output\AsyncConsoleOutput;
+use ArtisanBuild\CommunityPrompts\Output\AsyncConsoleOutput;
 use React\EventLoop\Loop;
 use React\Stream\ReadableResourceStream;
 use Symfony\Component\Console\Output\OutputInterface;
