@@ -71,7 +71,7 @@ abstract class PatchedPrompt
     /**
      * Implentation for faked keypresses.
      *
-     * @param array<int, string> $keys
+     * @param  array<int, string>  $keys
      */
     public static function fakeKeyPresses(array $keys, Closure $closure): void
     {
