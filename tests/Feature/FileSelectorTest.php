@@ -1,9 +1,9 @@
 <?php
 
-use Laravel\Prompts\Key;
-use Laravel\Prompts\Exceptions\NonInteractiveValidationException;
-use Laravel\Prompts\Prompt;
 use ArtisanBuild\CommunityPrompts\FileSelector;
+use Laravel\Prompts\Exceptions\NonInteractiveValidationException;
+use Laravel\Prompts\Key;
+use Laravel\Prompts\Prompt;
 
 use function ArtisanBuild\CommunityPrompts\fileselector;
 

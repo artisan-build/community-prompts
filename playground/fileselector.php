@@ -8,7 +8,7 @@ $file2import = fileselector(
     label: 'Select a file to import.',
     placeholder: 'E.g. ./vendor/autoload.php',
     validate: fn (string $value) => match (true) {
-        !is_readable($value) => 'Cannot read the file.',
+        ! is_readable($value) => 'Cannot read the file.',
         default => null,
     },
     hint: 'Input the file path.',

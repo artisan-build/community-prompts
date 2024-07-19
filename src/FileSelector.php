@@ -2,11 +2,11 @@
 
 namespace ArtisanBuild\CommunityPrompts;
 
+use ArtisanBuild\CommunityPrompts\Themes\Default\FileSelectorRenderer;
 use Closure;
 use Illuminate\Support\Collection;
 use Laravel\Prompts\Key;
 use Laravel\Prompts\Prompt;
-use ArtisanBuild\CommunityPrompts\Themes\Default\FileSelectorRenderer;
 
 class FileSelector extends Prompt
 {
@@ -31,7 +31,7 @@ class FileSelector extends Prompt
     /**
      * Create a new SuggestPrompt instance.
      *
-     * @param   string[]    $extensions
+     * @param  string[]  $extensions
      */
     public function __construct(
         public string $label,
@@ -132,8 +132,7 @@ class FileSelector extends Prompt
     /**
      * Returns all entries in the directory as RecursiveDirectoryIterator
      *
-     * @param   string  $path
-     * @return  \RecursiveDirectoryIterator|\RegexIterator|array{}
+     * @return \RecursiveDirectoryIterator|\RegexIterator|array{}
      */
     protected function glob(string $path)
     {
@@ -145,6 +144,7 @@ class FileSelector extends Prompt
             if (is_dir($path) && is_readable($path)) {
                 return new \RecursiveDirectoryIterator($path);
             }
+
             return [];
         }
 
@@ -156,11 +156,12 @@ class FileSelector extends Prompt
         }
 
         // in case of non-existent path
-        if (!is_dir($dir) || !is_readable($dir)) {
+        if (! is_dir($dir) || ! is_readable($dir)) {
             return [];
         }
 
-        $pattern = sprintf("/%s/", preg_quote($file));
+        $pattern = sprintf('/%s/', preg_quote($file));
+
         return new \RegexIterator(
             new \RecursiveDirectoryIterator($dir),
             $pattern
@@ -170,8 +171,7 @@ class FileSelector extends Prompt
     /**
      * Returns all entries in the directory as an array
      *
-     * @param   string  $path
-     * @return  string[]
+     * @return string[]
      */
     protected function entries(string $path): array
     {
@@ -183,7 +183,7 @@ class FileSelector extends Prompt
             })
             ->map(
                 fn (string $entry) => is_dir($entry)
-                    ? str_replace('//', '/', $entry . '/')
+                    ? str_replace('//', '/', $entry.'/')
                     : str_replace('//', '/', $entry)
             )
             ->sort()
@@ -192,8 +192,6 @@ class FileSelector extends Prompt
 
     /**
      * Ditermines whether the entry should be rejected
-     *
-     * @param   string  $entry
      */
     private function isRejectable(string $entry): bool
     {
@@ -208,6 +206,7 @@ class FileSelector extends Prompt
                 return false;
             }
         }
+
         return true;
     }
 

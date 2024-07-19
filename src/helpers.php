@@ -21,7 +21,7 @@ function tabbedscrollableselect(string $label, array|Collection $options, int|Cl
 /**
  * Prompt the user for text input with auto-completion of filepath.
  *
- * @param   array<string>   $extensions
+ * @param  array<string>  $extensions
  */
 function fileselector(string $label, string $placeholder = '', string $default = '', int $scroll = 5, bool|string $required = false, mixed $validate = null, string $hint = '', array $extensions = []): string
 {
