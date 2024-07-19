@@ -8,6 +8,7 @@ use Laravel\Prompts\Concerns;
 use Laravel\Prompts\Exceptions\FormRevertedException;
 use Laravel\Prompts\Output\BufferedConsoleOutput;
 use Laravel\Prompts\Output\ConsoleOutput;
+use Laravel\Prompts\Prompt;
 use Laravel\Prompts\Terminal;
 use RuntimeException;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -21,7 +22,7 @@ use Throwable;
  *
  * @see https://github.com/laravel/prompts/pull/154
  */
-abstract class PatchedPrompt
+abstract class PatchedPrompt extends Prompt
 {
     use Concerns\Colors;
     use Concerns\Cursor;
