@@ -119,6 +119,11 @@ abstract class PatchedPrompt extends Prompt
     public bool|string $required;
 
     /**
+     * The transformation callback.
+     */
+    public ?Closure $transform = null;
+
+    /**
      * The validator callback or rules.
      */
     public mixed $validate;
@@ -208,7 +213,7 @@ abstract class PatchedPrompt extends Prompt
                         throw new FormRevertedException();
                     }
 
-                    return $this->value();
+                    return $this->transformedValue();
                 }
 
                 // `null` is a valid return value for this loop
@@ -371,7 +376,7 @@ abstract class PatchedPrompt extends Prompt
      */
     protected function submit(): void
     {
-        $this->validate($this->value());
+        $this->validate($this->transformedValue());
 
         if ($this->state !== 'error') {
             $this->state = 'submit';
@@ -416,10 +421,30 @@ abstract class PatchedPrompt extends Prompt
         }
 
         if ($this->validated) {
-            $this->validate($this->value());
+            $this->validate($this->transformedValue());
         }
 
         return true;
+    }
+
+    /**
+     * Transform the input.
+     */
+    private function transform(mixed $value): mixed
+    {
+        if (is_null($this->transform)) {
+            return $value;
+        }
+
+        return call_user_func($this->transform, $value);
+    }
+
+    /**
+     * Get the transformed value of the prompt.
+     */
+    protected function transformedValue(): mixed
+    {
+        return $this->transform($this->value());
     }
 
     /**

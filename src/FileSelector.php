@@ -42,6 +42,7 @@ class FileSelector extends Prompt
         public mixed $validate = null,
         public string $hint = '',
         public array $extensions = [],
+        public ?Closure $transform = null,
     ) {
         static::$themes['default'][static::class] = FileSelectorRenderer::class;
 
