@@ -51,6 +51,7 @@ class TabbedScrollableSelectPrompt extends Prompt
         public bool|string $required = true,
         public mixed $validate = null,
         public string $hint = '',
+        public ?Closure $transform = null,
     ) {
         static::$themes['default'][static::class] = TabbedScrollableSelectRenderer::class;
 

@@ -13,7 +13,7 @@ use Illuminate\Support\Collection;
  * @param  array<int, TOption>|Collection<int, TOption>  $options
  * @param  int|Closure(Collection<int, TOption>): Collection<int, TOption>  $default  The default value for the prompt. If Closure, it is passed `$options` and should return a Collection containing only the desired record.
  */
-function tabbedscrollableselect(string $label, array|Collection $options, int|Closure $default = 0, int $scroll = 14, int $max_width = 120, bool|string $required = true, mixed $validate = null, string $hint = ''): int|string|null
+function tabbedscrollableselect(string $label, array|Collection $options, int|Closure $default = 0, int $scroll = 14, int $max_width = 120, bool|string $required = true, mixed $validate = null, string $hint = '', ?Closure $transform = null): int|string|null
 {
     return (new TabbedScrollableSelectPrompt(...func_get_args()))->prompt();
 }
