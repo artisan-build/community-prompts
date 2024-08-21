@@ -68,6 +68,23 @@ $file2import = fileselector(
 
 The closure will receive the value that has been entered and may return an error message, or `null` if the validation passes.
 
+## Transforming Input
+
+Additionally, you may make changes to the input before it gets validated by passing a closure to the `transform` argument.
+
+```php
+$path = fileselector(
+    label: 'Select a file to import.',
+    placeholder: 'E.g. ./vendor/autoload.php',
+    hint: 'Input the file path.',
+    validate: fn (string $value) => match (true) {
+        !is_readable($value) => 'Cannot read the file.',
+        default => null,
+    },
+    transform: fn ($value) => realpath($value),
+);
+```
+
 ## Filtering by File Extensions
 
 Finally, you can filter the options by passing the lists of file extensions to the parameter `extensions`.
