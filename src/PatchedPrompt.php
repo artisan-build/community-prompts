@@ -66,7 +66,7 @@ abstract class PatchedPrompt extends Prompt
 
         static::$terminal = $mock;
 
-        static::setOutput(new BufferedConsoleOutput());
+        static::setOutput(new BufferedConsoleOutput);
     }
 
     /**
@@ -210,7 +210,7 @@ abstract class PatchedPrompt extends Prompt
                     }
 
                     if ($key === Key::CTRL_U && self::$revertUsing) {
-                        throw new FormRevertedException();
+                        throw new FormRevertedException;
                     }
 
                     return $this->transformedValue();
@@ -286,7 +286,7 @@ abstract class PatchedPrompt extends Prompt
      */
     protected static function output(): OutputInterface
     {
-        return static::$output ??= new ConsoleOutput();
+        return static::$output ??= new ConsoleOutput;
     }
 
     /**
@@ -306,7 +306,7 @@ abstract class PatchedPrompt extends Prompt
      */
     public static function terminal(): Terminal
     {
-        return static::$terminal ??= new Terminal();
+        return static::$terminal ??= new Terminal;
     }
 
     /**

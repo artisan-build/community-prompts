@@ -59,6 +59,6 @@ abstract class AsyncPrompt extends PatchedPrompt
      */
     protected static function output(): OutputInterface
     {
-        return static::$output ??= new AsyncConsoleOutput();
+        return static::$output ??= new AsyncConsoleOutput;
     }
 }
