@@ -147,3 +147,14 @@ it('filter dir entries with specified extensions', function () {
 
     expect($result)->toBe('./composer.json');
 });
+
+it('transforms values', function () {
+    Prompt::fake(['v', 'e', 'n', 'd', 'o', 'r', Key::ENTER]);
+
+    $result = fileselector(
+        label: 'Select a file.',
+        transform: fn ($value) => realpath($value),
+    );
+
+    expect($result)->toBe(realpath('vendor'));
+});
