@@ -25,6 +25,7 @@
         }
     },
     "require": {
+        "react/event-loop": "^1.5",
         "react/stream": "^1.4",
         "illuminate/collections": "^11.26"
     },
