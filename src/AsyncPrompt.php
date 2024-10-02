@@ -3,12 +3,15 @@
 namespace ArtisanBuild\CommunityPrompts;
 
 use ArtisanBuild\CommunityPrompts\Output\AsyncConsoleOutput;
-use Closure;
+use Laravel\Prompts\Output\BufferedConsoleOutput;
+use Laravel\Prompts\Prompt;
+use Laravel\Prompts\Support\Result;
+use Override;
 use React\EventLoop\Loop;
 use React\Stream\ReadableResourceStream;
 use Symfony\Component\Console\Output\OutputInterface;
 
-abstract class AsyncPrompt extends PatchedPrompt
+abstract class AsyncPrompt extends Prompt
 {
     /**
      * The output instance.
@@ -19,13 +22,9 @@ abstract class AsyncPrompt extends PatchedPrompt
     protected static OutputInterface $output;
 
     protected static ReadableResourceStream $stdin;
-
-    /**
-     * Implementation for the looping mechanism for faking keypresses
-     *
-     * @param  array<int, string>  $keys
-     */
-    public static function fakeKeyPresses(array $keys, Closure $closure): void
+    
+    #[Override]
+    public static function fakeKeyPresses(array $keys, callable $closure): void
     {
         static::$stdin ??= new ReadableResourceStream(STDIN);
         foreach ($keys as $key) {
@@ -33,17 +32,23 @@ abstract class AsyncPrompt extends PatchedPrompt
                 static::$stdin->emit('data', [$key]);
             });
         }
+
+        self::setOutput(new BufferedConsoleOutput);
     }
 
+    #[Override]
     public function runLoop(callable $callable): mixed
     {
+        /**
+         * @var  Result|null  $result
+         */
         $result = null;
 
         static::$stdin ??= new ReadableResourceStream(STDIN);
         static::$stdin->on('data', function (string $key) use ($callable, &$result) {
             $result = $callable($key);
 
-            if (! $this->is_nothing($result)) {
+            if ($result instanceof Result) {
                 Loop::stop();
             }
         });
@@ -51,14 +56,28 @@ abstract class AsyncPrompt extends PatchedPrompt
         Loop::run();
         static::$stdin->removeAllListeners();
 
-        return $result;
+        if ($result === null) {
+            throw new \RuntimeException('Prompt did not return a result.');
+        }
+
+        return $result->value;
+    }
+
+    /**
+     * Set the output instance.
+     */
+    #[Override]
+    public static function setOutput(OutputInterface $output): void
+    {
+        self::$output = $output;
     }
 
     /**
      * Get the current output instance.
      */
+    #[Override]
     protected static function output(): OutputInterface
     {
-        return static::$output ??= new AsyncConsoleOutput;
+        return self::$output ??= new AsyncConsoleOutput();
     }
 }
