@@ -1,5 +1,14 @@
 # Release Notes
 
+## v0.3.0 - 2024-10-02
+
+### What's Changed
+
+* [ Feat ] Add transform option by [@macocci7](https://github.com/macocci7) in https://github.com/artisan-build/community-prompts/pull/7
+* [ Task ] Remove Patched Prompt by [@ProjektGopher](https://github.com/ProjektGopher) in https://github.com/artisan-build/community-prompts/pull/8
+
+**Full Changelog**: https://github.com/artisan-build/community-prompts/compare/v0.2.0...v0.3.0
+
 ## v0.2.0 - 2024-07-19
 
 ### What's Changed
