@@ -22,7 +22,7 @@ abstract class AsyncPrompt extends Prompt
     protected static OutputInterface $output;
 
     protected static ReadableResourceStream $stdin;
-    
+
     #[Override]
     public static function fakeKeyPresses(array $keys, callable $closure): void
     {
@@ -40,7 +40,7 @@ abstract class AsyncPrompt extends Prompt
     public function runLoop(callable $callable): mixed
     {
         /**
-         * @var  Result|null  $result
+         * @var Result|null $result
          */
         $result = null;
 
@@ -78,6 +78,6 @@ abstract class AsyncPrompt extends Prompt
     #[Override]
     protected static function output(): OutputInterface
     {
-        return self::$output ??= new AsyncConsoleOutput();
+        return self::$output ??= new AsyncConsoleOutput;
     }
 }
