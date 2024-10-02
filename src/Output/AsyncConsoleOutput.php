@@ -16,11 +16,19 @@ class AsyncConsoleOutput extends ConsoleOutput
     #[Override]
     protected function doWrite(string $message, bool $newline): void
     {
+        if ($newline) {
+            $message .= PHP_EOL;
+        }
+
         $this->stdout ??= new WritableResourceStream(STDOUT);
         $this->stdout->write($message);
 
-        if ($newline) {
-            $this->stdout->write(PHP_EOL);
+        $trailingNewLines = strlen($message) - strlen(rtrim($message, PHP_EOL));
+
+        if (trim($message) === '') {
+            $this->newLinesWritten += $trailingNewLines;
+        } else {
+            $this->newLinesWritten = $trailingNewLines;
         }
     }
 
