@@ -25,7 +25,8 @@
         }
     },
     "require": {
-        "react/stream": "^1.4"
+        "react/stream": "^1.4",
+        "illuminate/collections": "^11.26"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.11",
