@@ -25,6 +25,23 @@ Documentation for Laravel Prompts can be found on the [Laravel website](https://
 composer require artisan-build/community-prompts
 ```
 
+```php
+use function ArtisanBuild\CommunityPrompts\tabbedscrollableselect;
+
+// ... Command setup
+$applicants = Applicant::whereAvailable()->get();
+$selected_applicant = Applicant::find(tabbedscrollableselect(
+    label: 'Which persons application would you like to choose?',
+    options: $applicants->map(fn (Applicant $applicant) => [
+      'id' => $applicant->id,
+      'tab' => $applicant->name,
+      'body' => $applicant->cover_letter,
+    ]),
+    required: false,
+    hint: 'The chosen application will determine who gets the job.',
+));
+```
+
 For usage examples, refer to the `playground` directory.
 
 ## Contributing
